@@ -110,7 +110,7 @@ class UIManager {
       <div class="progress-bar">
         <div class="progress-fill" style="width: ${Math.min((points / 500) * 100, 100)}%"></div>
       </div>
-      <div class="points-display">✨ ${points} Magic Points ✨</div>
+      <div class="points-display">✨ ${points} Points ✨</div>
       ${REWARDS.map(reward => `
         <div class="reward-item ${points < reward.points ? 'disabled' : ''}"
              onclick="attemptRewardRedeem('${reward.id}')">

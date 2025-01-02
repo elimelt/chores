@@ -10,7 +10,7 @@ class StateManager {
   }
 
   initialize() {
-    const savedState = localStorage.getItem('magicalLifeTracker');
+    const savedState = localStorage.getItem('choreTracker');
     if (savedState) {
       this.state = JSON.parse(savedState);
       this.checkReset();
@@ -46,7 +46,7 @@ class StateManager {
   }
 
   save() {
-    localStorage.setItem('magicalLifeTracker', JSON.stringify(this.state));
+    localStorage.setItem('choreTracker', JSON.stringify(this.state));
     this.notifyListeners();
   }
 
@@ -75,7 +75,7 @@ class StateManager {
       habit.completed = true;
       habit.lastCompleted = today;
       this.state.points += 10;
-      NotificationManager.show('✨ +10 points! Keep up the magic! ✨');
+      NotificationManager.show('✨ +10 points! Keep up the good work! ✨');
     } else {
       habit.completed = false;
       this.state.points = Math.max(0, this.state.points - 10);

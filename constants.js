@@ -8,10 +8,17 @@ const HABITS = [
 ];
 
 const REWARDS = [
-  { id: 'bubble-bath', points: 50, name: '🛁 Bubble Bath Time' },
-  { id: 'face-mask', points: 30, name: '🎭 Fancy Face Mask' },
-  { id: 'movie-night', points: 100, name: '🎬 Movie Night' },
-  { id: 'coffee-shop', points: 80, name: '☕ Coffee Shop Visit' }
+  { id: 'sweet-treat', points: 200, name: '🍬 Sweet Treat' },
+  { id: 'movie-night', points: 180, name: '🎬 Movie Night' },
+  { id: 'coffee-shop', points: 300, name: '☕ Coffee Shop Visit' },
+  { id: 'takeout', points: 500, name: '🍱 Takeout Dinner' },
+  { id: 'lotion-massage', points: 1000, name: '🧴 Lotion Massage' },
+  { id: 'new-book', points: 800, name: '📚 New Book' },
+  { id: 'makeup', points: 800, name: '💄 New Makeup Item' },
+  { id: 'back-scratches', points: 500, name: '🤗 30 min Scratches' },
+  { id: 'chore-day-off', points: 400, name: '🎉 Chore Day Off' },
+  { id: 'spa-night', points: 800, name: '🧖‍♀️ Spa Night' },
+  { id: 'facial', points: 1000, name: '🧖‍♀️ Facial' }
 ];
 
 const CHORE_SCHEDULE = [
