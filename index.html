@@ -1,18 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- favicon -->
     <link rel="icon" href="favicon.png" type="image/png" sizes="16x16">
     <title>🌸 Chores 🌸</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Pacifico&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <div class="container">
-        <h1 class="animate__animated animate__fadeIn">🌸 Chores 🌸</h1>
+        <h1 class="animate__animated animate__fadeIn">
+            🌸 Chores 🌸
+            <button id="settingsButton" class="settings-button">⚙️</button>
+        </h1>
 
         <div class="today-section">
             <h2 class="today-header">✨ Today's Tasks ✨</h2>
@@ -39,13 +44,79 @@
                 </div>
             </div>
         </div>
+
+        <div id="settingsModal" class="modal">
+            <div class="modal-content settings-content">
+                <div class="settings-header">
+                    <h3 class="modal-title">✨ Settings ✨</h3>
+                    <button id="closeSettings" class="close-button">✖️</button>
+                </div>
+
+                <div class="settings-container">
+                    <div class="settings-tabs">
+                        <button class="tab-button active" data-tab="habits">Habits</button>
+                        <button class="tab-button" data-tab="rewards">Rewards</button>
+                        <button class="tab-button" data-tab="schedule">Schedule</button>
+                        <button class="tab-button" data-tab="people">People</button>
+                    </div>
+
+                    <div class="settings-panels">
+                        <div id="habitsTab" class="settings-tab active">
+                            <h4>Daily Habits</h4>
+                            <div id="habitsSettings" class="settings-section"></div>
+                            <button id="saveHabits" class="save-button">Save Habits</button>
+                        </div>
+
+                        <div id="rewardsTab" class="settings-tab">
+                            <h4>Rewards</h4>
+                            <div id="rewardsSettings" class="settings-section"></div>
+                            <button id="saveRewards" class="save-button">Save Rewards</button>
+                        </div>
+
+                        <div id="scheduleTab" class="settings-tab">
+                            <h4>Chore Schedule</h4>
+                            <div id="scheduleSettings" class="settings-section"></div>
+                            <button id="saveSchedule" class="save-button">Save Schedule</button>
+                        </div>
+
+                        <div id="peopleTab" class="settings-tab">
+                            <h4>People</h4>
+                            <div id="peopleSettings" class="settings-section"></div>
+                            <button id="savePeople" class="save-button">Save People</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="settings-footer">
+                    <button id="resetDefaults" class="reset-button">Reset to Defaults</button>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <!-- Scripts -->
-    <script src="constants.js"></script>
+    <script src="config.js"></script>
     <script src="stateManager.js"></script>
     <script src="notificationManager.js"></script>
+    <script src="settingsManager.js"></script>
     <script src="uiManager.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const tabButtons = document.querySelectorAll('.tab-button');
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    document.querySelectorAll('.settings-tab').forEach(tab =>
+                        tab.classList.remove('active'));
+                    tabButtons.forEach(btn =>
+                        btn.classList.remove('active'));
+
+                    button.classList.add('active');
+                    const tabId = button.getAttribute('data-tab') + 'Tab';
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+        });
+    </script>
     <script src="app.js"></script>
 </body>
+
 </html>
